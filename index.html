@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YOUR NAME — Portfolio</title>
+  <meta name="description" content="Portfolio of YOUR NAME: role, projects, experience, and contact." />
+  <meta property="og:title" content="YOUR NAME — Portfolio" />
+  <meta property="og:description" content="Portfolio of YOUR NAME: role, projects, experience, and contact." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/og-image.png" />
+  <link rel="icon" href="/favicon.ico" />
+
+  <!-- Tailwind via CDN for a fast, no-build setup -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Tailwind config (optional custom palette)
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              300: '#a5b4fc',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Smooth scrolling */
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-white text-slate-800">
+  <!-- ===== Header / Nav ===== -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-white/80 border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        <a href="#home" class="font-semibold tracking-tight">YOUR NAME</a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#about" class="hover:text-brand-600">About</a>
+          <a href="#projects" class="hover:text-brand-600">Projects</a>
+          <a href="#experience" class="hover:text-brand-600">Experience</a>
+          <a href="#contact" class="hover:text-brand-600">Contact</a>
+          <a href="YOUR_RESUME_LINK" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-slate-300 px-3 py-1.5 hover:border-brand-500 hover:text-brand-700">Résumé</a>
+        </nav>
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-slate-300" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="md:hidden hidden border-t border-slate-200">
+      <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-3 text-sm">
+        <a href="#about" class="hover:text-brand-600">About</a>
+        <a href="#projects" class="hover:text-brand-600">Projects</a>
+        <a href="#experience" class="hover:text-brand-600">Experience</a>
+        <a href="#contact" class="hover:text-brand-600">Contact</a>
+        <a href="YOUR_RESUME_LINK" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-slate-300 px-3 py-1.5 w-max hover:border-brand-500 hover:text-brand-700">Résumé</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section id="home" class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-brand-50 to-transparent"></div>
+    <div class="relative max-w-6xl mx-auto px-4 py-20 md:py-28">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <p class="text-sm uppercase tracking-widest text-brand-700/80 font-semibold">Available for work</p>
+          <h1 class="mt-4 text-4xl md:text-6xl font-extrabold leading-tight">
+            Hi, I'm <span class="text-brand-700">YOUR NAME</span> — <span class="text-slate-900">ROLE/TITLE</span>
+          </h1>
+          <p class="mt-5 text-slate-600 text-lg md:text-xl">Short intro: 1–2 lines about what you do, your stack, and what problems you love to solve.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#projects" class="inline-flex items-center rounded-xl bg-brand-600 text-white px-4 py-2.5 hover:bg-brand-700">See my work</a>
+            <a href="#contact" class="inline-flex items-center rounded-xl border border-slate-300 px-4 py-2.5 hover:border-brand-500">Contact me</a>
+          </div>
+        </div>
+        <div class="relative">
+          <!-- Replace with your photo -->
+          <div class="aspect-square rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+            <svg viewBox="0 0 400 400" class="w-full h-full">
+              <defs>
+                <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#a5b4fc"/>
+                  <stop offset="100%" stop-color="#6366f1"/>
+                </linearGradient>
+              </defs>
+              <rect width="400" height="400" fill="url(#g)"/>
+              <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="28" fill="white" font-family="ui-sans-serif,system-ui">Your Photo</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== About ===== -->
+  <section id="about" class="py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold">About</h2>
+      <p class="mt-4 text-slate-700 leading-relaxed">Write a crisp bio: your background, specialties, and what you're looking for. Keep it under 120–160 words for readability.</p>
+      <div class="mt-6 flex flex-wrap gap-2">
+        <span class="px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 text-sm">Java</span>
+        <span class="px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 text-sm">Python</span>
+        <span class="px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 text-sm">AWS</span>
+        <span class="px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 text-sm">Kubernetes</span>
+        <span class="px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 text-sm">Terraform</span>
+        <!-- Add more -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Projects ===== -->
+  <section id="projects" class="py-16 md:py-24 bg-slate-50 border-y border-slate-200">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex items-end justify-between gap-4">
+        <h2 class="text-2xl md:text-3xl font-bold">Projects</h2>
+        <a href="https://github.com/YOUR_GH_USERNAME" target="_blank" rel="noreferrer" class="text-sm text-brand-700 hover:underline">More on GitHub →</a>
+      </div>
+
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Project card -->
+        <article class="group rounded-2xl border border-slate-200 bg-white overflow-hidden hover:shadow-md transition">
+          <div class="aspect-[16/9] bg-slate-100"></div>
+          <div class="p-5">
+            <h3 class="font-semibold text-lg">Project One</h3>
+            <p class="mt-2 text-sm text-slate-600">One-liner about what this does and why it matters. Mention stack briefly.</p>
+            <div class="mt-4 flex gap-3 text-sm">
+              <a href="#" class="inline-flex items-center rounded-lg border border-slate-300 px-3 py-1.5 hover:border-brand-500">Demo</a>
+              <a href="#" class="inline-flex items-center rounded-lg border border-slate-300 px-3 py-1.5 hover:border-brand-500">Code</a>
+            </div>
+          </div>
+        </article>
+        <article class="group rounded-2xl border border-slate-200 bg-white overflow-hidden hover:shadow-md transition">
+          <div class="aspect-[16/9] bg-slate-100"></div>
+          <div class="p-5">
+            <h3 class="font-semibold text-lg">Project Two</h3>
+            <p class="mt-2 text-sm text-slate-600">Short description of the problem solved, your role, impact/metrics if any.</p>
+            <div class="mt-4 flex gap-3 text-sm">
+              <a href="#" class="inline-flex items-center rounded-lg border border-slate-300 px-3 py-1.5 hover:border-brand-500">Demo</a>
+              <a href="#" class="inline-flex items-center rounded-lg border border-slate-300 px-3 py-1.5 hover:border-brand-500">Code</a>
+            </div>
+          </div>
+        </article>
+        <article class="group rounded-2xl border border-slate-200 bg-white overflow-hidden hover:shadow-md transition">
+          <div class="aspect-[16/9] bg-slate-100"></div>
+          <div class="p-5">
+            <h3 class="font-semibold text-lg">Project Three</h3>
+            <p class="mt-2 text-sm text-slate-600">Highlight the outcome: speedups, cost savings, UX win, etc.</p>
+            <div class="mt-4 flex gap-3 text-sm">
+              <a href="#" class="inline-flex items-center rounded-lg border border-slate-300 px-3 py-1.5 hover:border-brand-500">Demo</a>
+              <a href="#" class="inline-flex items-center rounded-lg border border-slate-300 px-3 py-1.5 hover:border-brand-500">Code</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Experience ===== -->
+  <section id="experience" class="py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold">Experience</h2>
+      <ol class="mt-8 relative border-s border-slate-200">
+        <li class="ms-4 pb-10">
+          <div class="absolute w-3 h-3 bg-brand-600 rounded-full -left-1.5 mt-1.5"></div>
+          <h3 class="font-semibold">Job Title — Company</h3>
+          <p class="text-sm text-slate-500">Jan 2023 – Present · City</p>
+          <ul class="mt-2 text-slate-700 list-disc ps-5">
+            <li>Impact-driven bullet with a metric or result.</li>
+            <li>Another bullet with numbers if possible.</li>
+          </ul>
+        </li>
+        <li class="ms-4 pb-10">
+          <div class="absolute w-3 h-3 bg-brand-600 rounded-full -left-1.5 mt-1.5"></div>
+          <h3 class="font-semibold">Job Title — Company</h3>
+          <p class="text-sm text-slate-500">Aug 2021 – Dec 2022 · City</p>
+          <ul class="mt-2 text-slate-700 list-disc ps-5">
+            <li>Key responsibility and outcome.</li>
+            <li>Tech used and what you improved.</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section id="contact" class="py-16 md:py-24 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold">Get in touch</h2>
+          <p class="mt-3 text-slate-700">Prefer email? Click the button to open your mail client with a prefilled subject.</p>
+          <a href="mailto:you@example.com?subject=Hi%20YOUR%20NAME%2C%20I%20saw%20your%20portfolio" class="mt-6 inline-flex items-center rounded-xl bg-brand-600 text-white px-4 py-2.5 hover:bg-brand-700">Email me</a>
+          <div class="mt-6 flex gap-4 text-slate-600">
+            <a href="https://www.linkedin.com/in/YOUR_HANDLE" class="hover:text-brand-700" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="https://github.com/YOUR_GH_USERNAME" class="hover:text-brand-700" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://x.com/YOUR_HANDLE" class="hover:text-brand-700" target="_blank" rel="noreferrer">X / Twitter</a>
+          </div>
+        </div>
+        <div class="rounded-2xl border border-dashed border-slate-300 p-6 text-sm text-slate-600 bg-white">
+          <p class="font-semibold">Optional form (no backend needed)</p>
+          <p class="mt-2">You can use <a class="text-brand-700 underline" href="https://formspree.io/" target="_blank">Formspree</a> or <a class="text-brand-700 underline" href="https://formspark.io/" target="_blank">Formspark</a> free tiers to capture submissions without servers. Replace the "action" below with your endpoint.</p>
+          <form class="mt-4 flex flex-col gap-3" action="#" method="POST">
+            <input type="text" name="name" placeholder="Your name" required class="px-3 py-2 rounded-lg border border-slate-300">
+            <input type="email" name="email" placeholder="Email" required class="px-3 py-2 rounded-lg border border-slate-300">
+            <textarea name="message" placeholder="Message" rows="4" class="px-3 py-2 rounded-lg border border-slate-300"></textarea>
+            <button type="submit" class="inline-flex items-center rounded-xl bg-brand-600 text-white px-4 py-2.5 hover:bg-brand-700">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="py-10">
+    <div class="max-w-6xl mx-auto px-4 text-sm text-slate-500 flex items-center justify-between">
+      <p>© <span id="y"></span> YOUR NAME. All rights reserved.</p>
+      <a href="#home" class="hover:text-brand-700">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mobileMenu');
+    btn?.addEventListener('click', () => menu.classList.toggle('hidden'));
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

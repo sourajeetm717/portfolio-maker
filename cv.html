@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CV / Resume</title>
+  <meta name="description" content="Curriculum Vitae" />
+  <style>
+    :root { --bg: #0b1020; --card: #ffffff; --text: #0a0a0a; --muted:#64748b; --brand:#0ea5e9; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: var(--bg); color: var(--text); }
+    .wrap { max-width: 1100px; margin: 24px auto; padding: 0 16px; }
+    .card {
+      background: var(--card); border-radius: 16px; box-shadow: 0 10px 30px rgba(2,6,23,.18);
+      overflow: hidden; border: 1px solid rgba(2,6,23,.06);
+    }
+    header { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px 18px; border-bottom: 1px solid rgba(2,6,23,.08);}
+    h1 { font-size: 18px; margin:0; letter-spacing:.2px; }
+    .muted { color: var(--muted); font-size: 13px; }
+    .actions { display:flex; gap:8px; flex-wrap:wrap; }
+    .btn {
+      appearance:none; border:1px solid rgba(2,6,23,.15); background:#fff; color:#0a0a0a;
+      padding:9px 12px; border-radius:10px; font-weight:500; font-size:14px; text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+    }
+    .btn:hover { border-color: var(--brand); box-shadow: 0 0 0 3px rgba(14,165,233,.15); }
+    .viewer { height: calc(100dvh - 160px); min-height: 60vh; background:#f1f5f9; }
+    .viewer object, .viewer iframe, .viewer embed { width:100%; height:100%; border:0; display:block; }
+    footer { padding: 10px 18px; border-top: 1px solid rgba(2,6,23,.08); display:flex; justify-content:space-between; align-items:center; }
+    @media (max-width: 640px) {
+      .viewer { height: 80vh; }
+      header { align-items: flex-start; flex-direction: column; }
+    }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <header>
+        <div>
+          <h1>Curriculum Vitae</h1>
+          <div class="muted">View, download, or print my latest CV.</div>
+        </div>
+        <div class="actions">
+          <a id="downloadBtn" class="btn" download>⬇️ Download</a>
+          <a id="openBtn" class="btn" target="_blank" rel="noopener">🔗 Open in new tab</a>
+          <button id="printBtn" class="btn" type="button">🖨️ Print</button>
+        </div>
+      </header>
+
+      <div class="viewer" id="viewer">
+        <object id="pdfObject" data="" type="application/pdf">
+          <div style="padding:24px;">
+            <p>Looks like your browser can’t embed PDFs.</p>
+            <p><a id="fallbackLink" class="btn">Open/Download the PDF</a></p>
+          </div>
+        </object>
+      </div>
+
+      <footer>
+        <span class="muted">If the embed doesn’t load, use “Open in new tab”.</span>
+        <span class="muted" id="fileHint"></span>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    // 1) Set your default PDF path here (relative or absolute):
+    const DEFAULT_PDF = "resume.pdf";
+
+    // 2) Optional: allow override via ?file=/path/to/CV.pdf
+    const params = new URLSearchParams(window.location.search);
+    const pdfUrl = params.get("file") ? decodeURIComponent(params.get("file")) : DEFAULT_PDF;
+
+    // Hook up viewer + actions
+    const pdfObject = document.getElementById("pdfObject");
+    const downloadBtn = document.getElementById("downloadBtn");
+    const openBtn = document.getElementById("openBtn");
+    const printBtn = document.getElementById("printBtn");
+    const fallbackLink = document.getElementById("fallbackLink");
+    const fileHint = document.getElementById("fileHint");
+
+    // Add a hash to fit page width if supported by the browser viewer
+    const viewerSrc = pdfUrl + "#view=FitH";
+    pdfObject.setAttribute("data", viewerSrc);
+
+    downloadBtn.href = pdfUrl;
+    openBtn.href = pdfUrl;
+    if (fallbackLink) fallbackLink.href = pdfUrl;
+
+    fileHint.textContent = "File: " + pdfUrl;
+
+    printBtn.addEventListener("click", () => {
+      // Open the PDF in a new tab (best cross-browser print behavior)
+      const w = window.open(pdfUrl, "_blank", "noopener");
+      // Let the user use the viewer's native print button
+      if (!w) alert("Popup blocked. Allow popups to print the PDF.");
+    });
+  </script>
+</body>
+</html>

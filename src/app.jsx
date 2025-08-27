@@ -414,7 +414,7 @@ function Contact() {
               Prefer email? Click the button to open your mail client with a prefilled subject.
             </p>
             <a
-              href={`mailto:${CONTENT.email}?subject=Hi%20YOUR%20NAME%2C%20I%20saw%20your%20portfolio`}
+              href={`mailto:${CONTENT.email}?subject=Hi%20%2C%20I%20saw%20your%20portfolio`}
               className="mt-6 inline-flex items-center gap-2 rounded-xl bg-indigo-600 text-white px-4 py-2.5 hover:bg-indigo-700"
             >
               <Mail size={18} /> Email me ({CONTENT.email})

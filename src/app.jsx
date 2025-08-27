@@ -438,12 +438,12 @@ function Contact() {
               </a>
             </div>
           </div>
-          <div className="rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 p-6 text-sm text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-900/50">
+          {/* <div className="rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 p-6 text-sm text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-900/50">
             <p className="font-semibold">Tip</p>
             <p className="mt-2">
               Want a contact form later? Use a no-backend service like Formspree/Formspark and drop their endpoint here without changing your layout.
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
